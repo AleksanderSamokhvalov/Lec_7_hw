@@ -13,7 +13,7 @@ int rows = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите количество столбцов");
 int columns = Convert.ToInt32(Console.ReadLine());
 
-int [] average = new int [columns];
+// int [] average = new int [columns];
 
 int [,] matrix = new int [rows,columns];
 
@@ -27,9 +27,20 @@ for (int i = 0; i < matrix.GetLength(0); i++)
     Console.WriteLine();
 }
 
+Console.WriteLine("================");
+
+double summ = 0;
+
 for (int j = 0; j < matrix.GetLength(1); j++)
 {
-    average=5/rows;
-    Console.Write(average + " ");
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        summ = summ + matrix[i,j];
+    }
+    double average = Math.Round(summ/matrix.GetLength(0),2);
+Console.Write(average + " // ");
+summ = 0;
 }
-// Console.WriteLine("Сумма элементов главной диагонали " + summ);
+
+
+
